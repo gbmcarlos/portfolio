@@ -21,6 +21,12 @@ You can also run the container yourself and override the container's command to 
 docker run --name other-container --rm -v $PWD/src:/var/www/src --rm -w /var/www -e PROJECT_NAME=portfolio portfolio:latest /bin/sh -c "/var/www/configure.sh && ruby -v"
 ```
 
+## Watch content
+To watch the content (see the compiled changes instantly reflect after every change) run 
+```bash
+docker exec -w /var/www portfolio /bin/sh -c "jekyll build --source /var/www/src --destination /var/www/src/public --watch"
+```
+
 ## Updating dependencies
 Whenever you want to update the dependencies, delete the lock file (`Gemfile.lock`), run the project again (with `up.sh` or `local.up.sh`)(this will update the dependencies and write the lock file inside the container) and extract the lock files from inside the container with:
 ```
