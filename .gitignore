@@ -1,1 +1,4 @@
 .idea
+src/public
+src/.sass-cache
+src/.jekyll-metadata

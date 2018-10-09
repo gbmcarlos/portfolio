@@ -19,5 +19,3 @@ docker run \
     -p ${HOST_PORT}:80 \
     -e PROJECT_NAME \
     ${PROJECT_NAME}:latest
-
-#docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:3.8 jekyll build

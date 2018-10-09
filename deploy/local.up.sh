@@ -19,6 +19,7 @@ docker run \
     -p ${HOST_PORT}:80 \
     -e PROJECT_NAME \
     -v $PWD/../src:/var/www/src \
-    ${PROJECT_NAME}:latest
+    ${PROJECT_NAME}:latest \
+    /bin/sh -c "jekyll build --source /var/www/src --destination /var/www/src/public && /usr/sbin/nginx -g \"daemon off;\""
 
 docker logs -f ${PROJECT_NAME}
