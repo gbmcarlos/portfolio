@@ -22,6 +22,11 @@ WORKDIR /var/www
 COPY ./Gemfile* /var/www/
 RUN bundler install
 
+## SCRIPTS
+### Make sure all scripts have execution permissions
+COPY ./deploy/scripts/* /var/www/
+RUN chmod +x /var/www/*.sh
+
 ## CONFIG FILES
 ### We just need a very simple nginx config file
 COPY ./deploy/config/nginx.conf /etc/nginx/nginx.conf
@@ -32,10 +37,5 @@ COPY ./src /var/www/src
 ## JEKYLL BUILD
 ### Build from src to src/public
 RUN jekyll build --source /var/www/src --destination /var/www/src/public
-
-## SCRIPTS
-### Make sure all scripts have execution permissions
-COPY ./deploy/scripts/* /var/www/
-RUN chmod +x /var/www/*.sh
 
 CMD ["/var/www/entrypoint.sh"]

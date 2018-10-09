@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -ex
-
 export PROJECT_NAME=${PROJECT_NAME=localhost}
 export BASIC_AUTH_ENABLED=${BASIC_AUTH_ENABLED:=true}
 export BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME:=admin}
@@ -13,7 +11,7 @@ export BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD:=${PROJECT_NAME}_password}
 if
     [ ${BASIC_AUTH_ENABLED} = "true" ] ;
 then
-    htpasswd -cb -B -C 10 /etc/nginx/.htpasswd ${BASIC_AUTH_USERNAME} ${BASIC_AUTH_PASSWORD} ;
+    htpasswd -cb -B -C 10 /etc/nginx/.htpasswd ${BASIC_AUTH_USERNAME} ${BASIC_AUTH_PASSWORD} > /dev/null 2>&1 ;
 else
     export BASIC_AUTH_ENABLED=off ;
 fi
