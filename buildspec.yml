@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+    pre_build:
+        commands:
+            - aws --version
+            - $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
+            - REGISTRY_URI=${REGISTRY_HOST}/portfolio
+            - COMMIT_HASH=$(echo ${CODEBUILD_RESOLVED_SOURCE_VERSION} | cut -c 1-7)
+            - IMAGE_TAG=${COMMIT_HASH:=latest}
+    build:
+        commands:
+            - docker build -t ${REGISTRY_URI}:latest .
+            - docker tag ${REGISTRY_URI}:latest ${REGISTRY_URI}:$IMAGE_TAG
+    post_build:
+        commands:
+            - docker push ${REGISTRY_URI}:latest
+            - docker push ${REGISTRY_URI}:$IMAGE_TAG
+            - printf '[{"name":"portfolio","imageUri":"%s"}]' ${REGISTRY_URI}:${IMAGE_TAG} > portfolio_task_definition.json
+artifacts:
+    files:
+        - portfolio_task_definition.json
