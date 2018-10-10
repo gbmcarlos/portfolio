@@ -3,7 +3,6 @@ version: 0.2
 phases:
     pre_build:
         commands:
-            - aws --version
             - $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
             - REGISTRY_URI=${REGISTRY_HOST}/portfolio
             - COMMIT_HASH=$(echo ${CODEBUILD_RESOLVED_SOURCE_VERSION} | cut -c 1-7)
