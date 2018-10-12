@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 
 export HOST_PORT=${HOST_PORT:=83}
 export PROJECT_NAME=${PROJECT_NAME:=$(basename $(dirname $PWD))}
-export BASIC_AUTH_ENABLED=${BASIC_AUTH_ENABLED:=true}
+export BASIC_AUTH_ENABLED=${BASIC_AUTH_ENABLED:=false}
 export BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME:=admin}
 export BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD:=${PROJECT_NAME}_password}
 
