@@ -1,0 +1,15 @@
+I wanted an online presence for years, I had that clear. I needed a domain name, and it would be even better if I could have my own website hosted under that domain. After a quick comparison of domain name providers, I rushed to buy the domain before somebody else took it. Okay, I had the domain, I was safe. But there was no website yet, and it stayed like this for almost a year before anything else happened.
+
+I had two main ideas for the website: samples of the projects I would work on, and a blog. The idea of the blog was inspired by two other blogs, this one and this one. I thought it would be great to write articles to talk about any little theoretic knowledge I could have, and articles documenting the progress of any little project or challenge I would work on.
+
+A few weeks ago, I worked on a little assignment for a job interview (which didn't work out). It's just a small application, but as an extra show-off for the assignment, I decided to actually deploy it somewhere. Nothing fancy, I got a Heroku free account. With that, I was able to deploy, through Git (cool, right?) my application in a matter of minutes. Obviously, the domain they provide you is a subdomain of theirs. But I had my own domain, why not hosting the application under my domain? Wasn't that one of the main purposes of having it?
+
+Configuring the Heroku application to accept requests from a different domain name than the one they give you, and configure the redirection (a CNAME host record) on my DNS was actually pretty easy, but it was inspiration enough to finally start working on the damn blog: First thing, I wanted to know more about how the Domain Name System works, and then I got interested on how the domain names are actually registered. After a few hours of research during break-times spanning several days, I had something to write.
+
+When I wrote that article (on a plain Google Document), the blog itself didn't even exist yet. Bringing it to existence was what inspired this very article. First, getting the article published online (still unfinished) on a Blogger blog took me around 10 minutes. The interesting part, was to have a subdomain of my own domain name point to this blog. Obviously, I'm not the first one to try that, so Blogger already has prepared a help article and a domain authentication strategy for it.
+
+So after a little motivation boost, creating two CNAME host records (one for the redirection itself and the other for the authentication that Blogger performs) on my DNS provider, and waiting a whole day for the propagation to happen (which felt like a year), blog.gbmcarlos.com came to life.
+
+I have big plans: implementing projects based on ideas I've had throughout the years, writing about the progress of said projects, maybe even developing my own blog platform, expand the scope of my website, you name it.
+
+Wish me luck.
