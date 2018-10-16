@@ -28,4 +28,4 @@ docker run \
     ${PROJECT_NAME}:latest \
     /bin/sh -c "/var/www/configure.sh && jekyll build --source /var/www/src --destination /var/www/src/public && /usr/sbin/nginx -g \"daemon off;\""
 
-docker logs -f ${PROJECT_NAME}
+docker exec -w /var/www portfolio /bin/sh -c "jekyll build --source /var/www/src --destination /var/www/src/public --watch"
