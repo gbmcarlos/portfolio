@@ -1,11 +1,16 @@
+# Basic info
 title: gbmcarlos
 email: gbmcarlos@gmail.com
-description: >-
-  Carlos Garcia-Berro Molero
+description: Carlos Garcia-Berro Molero
 github_username: gbmcarlos
+
+# Content configuration
+collections_dir: collections
+collections:
+    - jobs
 
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
-  - jekyll-feed
+    - jekyll-feed

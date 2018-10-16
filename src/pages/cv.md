@@ -1,18 +1,15 @@
 ---
 layout: page
-title: Curriculum
 permalink: /curriculum/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+## Professional Career
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+{% for job in site.jobs reversed %}
+### <u>{{ job.position }}</u>
+#### {{ job.organization }}
+<small>{{ job.start_date }} - {{ job.end_date }} ({{ job.duration }})</small>  
+<small>{{ job.location }}</small>
+{{ job.content }}
+<br>
+{% endfor %}
