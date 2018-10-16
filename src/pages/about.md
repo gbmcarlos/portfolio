@@ -4,15 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+<img src="/assets/images/profile_picture.jpg" class="profile-picture">
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Initiated at the early age of eleven years, disciplined in self-teaching and self-improvement, quickly acquired a great premature experience.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Early involved in large-scale projects, and driven by curiosity and ambition, moved to Asia to work on a huge venture.
 
+Attracted always by all the fields of the software and specialized in web and mobile development end-to-end: from front-end to back-end, from designing to programming, from planning to managing.
 
-[jekyll-organization]: https://github.com/jekyll
+<link rel="stylesheet" href="/assets/styles/about.css">
