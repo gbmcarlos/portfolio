@@ -1,9 +1,8 @@
 ---
 layout: page
+title: Curriculum
 permalink: /curriculum/
 ---
-
-## Professional Career
 
 {% for job in site.jobs reversed %}
 ### <u>{{ job.position }}</u>
