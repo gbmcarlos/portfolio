@@ -12,12 +12,12 @@ These environment variables are given a default value in the `up.sh` and `local.
 | BASIC_AUTH_PASSWORD  | `PROJECT_NAME`_password                                                   | If `BASIC_AUTH_ENABLED` is `true`, it will be used to run `htpasswd` together with `BASIC_AUTH_USERNAME` to encrypt with bcrypt (cost 10). |
 
 Example:  
-```
+```bash
 HOST_PORT=8000 BASIC_AUTH_ENABLED=true BASIC_AUTH_USER=user BASIC_AUTH_PASSWORD=secure_password ./deploy/local.up.sh
 ```
 
-You can also run the container yourself and override the container's command to run a different process instead of the normal application and web server:    
-```
+You can also run the container yourself and override the container's command to run a different process instead of the normal application and web server:  
+```bash
 docker run --name other-container --rm -v $PWD/src:/var/www/src --rm -e PROJECT_NAME=portfolio portfolio:latest /bin/sh -c "./configure.sh && ruby -v"
 ```
 
@@ -29,6 +29,6 @@ docker exec portfolio /bin/sh -c "jekyll build --source src --destination src/pu
 
 ## Updating dependencies
 Whenever you want to update the dependencies, delete the lock file (`Gemfile.lock`), run the project again (with `up.sh` or `local.up.sh`)(this will update the dependencies and write the lock file inside the container) and extract the lock files from inside the container with:
-```
+```bash
 docker cp portfolio:/var/www/Gemfile.lock .
 ```
