@@ -2,19 +2,24 @@
 layout: html
 ---
 
-<body class="">
+<body>
 
     <section class="hero is-fullheight">
 
-        <div class="hero-head">
-            {% include header.html %}
-        </div>
-
         <div class="hero-body">
-            <div class="container-fluid has-text-centered">
-                <div class="columns">
-                    <div class="column is-7 is-offset-3">
+            <div class="container has-text-centered">
+                <div class="columns is-centered">
+                    <div class="column is-6 content">
+                        <img src="/assets/images/logo_box.png" class="hero-logo">
                         {{ content }}
+                    </div>
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-1">
+                        <a href="{% link pages/about.md %}">About me</a>
+                    </div>
+                    <div class="column is-1">
+                        <a href="{% link pages/cv.md %}">Curriculum</a>
                     </div>
                 </div>
             </div>
@@ -26,4 +31,5 @@ layout: html
 
     </section>
 
+    <link rel="stylesheet" href="/assets/styles/hero.css">
 </body>
