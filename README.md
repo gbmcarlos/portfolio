@@ -18,13 +18,13 @@ HOST_PORT=8000 BASIC_AUTH_ENABLED=true BASIC_AUTH_USER=user BASIC_AUTH_PASSWORD=
 
 You can also run the container yourself and override the container's command to run a different process instead of the normal application and web server:    
 ```
-docker run --name other-container --rm -v $PWD/src:/var/www/src --rm -w /var/www -e PROJECT_NAME=portfolio portfolio:latest /bin/sh -c "/var/www/configure.sh && ruby -v"
+docker run --name other-container --rm -v $PWD/src:/var/www/src --rm -e PROJECT_NAME=portfolio portfolio:latest /bin/sh -c "./configure.sh && ruby -v"
 ```
 
 ## Watch content
 To watch the content (see the compiled changes instantly reflect after every change) run 
 ```bash
-docker exec -w /var/www portfolio /bin/sh -c "jekyll build --source /var/www/src --destination /var/www/src/public --watch"
+docker exec portfolio /bin/sh -c "jekyll build --source src --destination src/public --watch"
 ```
 
 ## Updating dependencies

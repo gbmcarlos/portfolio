@@ -26,6 +26,6 @@ docker run \
     -e BASIC_AUTH_PASSWORD \
     -v $PWD/../src:/var/www/src \
     ${PROJECT_NAME}:latest \
-    /bin/sh -c "/var/www/configure.sh && jekyll build --source /var/www/src --destination /var/www/src/public && /usr/sbin/nginx -g \"daemon off;\""
+    /bin/sh -c "./configure.sh && jekyll build --source src --destination src/public && /usr/sbin/nginx -g \"daemon off;\""
 
-docker exec -w /var/www portfolio /bin/sh -c "jekyll build --source /var/www/src --destination /var/www/src/public --watch"
+docker exec portfolio /bin/sh -c "jekyll build --source src --destination src/public --watch"

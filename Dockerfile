@@ -19,23 +19,23 @@ WORKDIR /var/www
 
 ## GEM DEPENDENCIES
 ### Copy the Gemfile files and install dependencies with bundler
-COPY ./Gemfile* /var/www/
+COPY ./Gemfile* ./
 RUN bundler install
 
 ## SCRIPTS
 ### Make sure all scripts have execution permissions
-COPY ./deploy/scripts/* /var/www/
-RUN chmod +x /var/www/*.sh
+COPY ./deploy/scripts/* ./
+RUN chmod +x ./*.sh
 
 ## CONFIG FILES
 ### We just need a very simple nginx config file
 COPY ./deploy/config/nginx.conf /etc/nginx/nginx.conf
 
 ## SOURCE CODE
-COPY ./src /var/www/src
+COPY ./src ./src
 
 ## JEKYLL BUILD
 ### Build from src to src/public
-RUN jekyll build --source /var/www/src --destination /var/www/src/public
+RUN jekyll build --source src --destination src/public
 
-CMD ["/var/www/entrypoint.sh"]
+CMD ["./entrypoint.sh"]
