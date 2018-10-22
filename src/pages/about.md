@@ -2,9 +2,8 @@
 layout: page
 title: About
 permalink: /about/
+profile_column: true
 ---
-
-<img src="/assets/images/profile_picture.jpg" class="profile-picture">
 
 Initiated at the early age of eleven years, disciplined in self-teaching and self-improvement, quickly acquired a great premature experience.
 

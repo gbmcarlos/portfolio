@@ -1,0 +1,32 @@
+---
+layout: html
+---
+
+<body class="has-navbar-fixed-top">
+
+    {% include header.html %}
+
+    <section class="section content">
+        <div class="container-fluid">
+            <div class="columns">
+
+                <!-- If the current page has profile_column, add it, otherwise, just add the content one with an offset -->
+                {% if page.profile_column %}
+                <div class="column is-3">
+                    <img src="/assets/images/profile_picture.jpg" class="profile-picture">
+                </div>
+                <div class="column is-6">
+                {% else %}
+                <div class="column is-6 is-offset-3">
+                {% endif %}
+                    {{ content }}
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {% include footer.html %}
+
+    <link rel="stylesheet" href="/assets/styles/page.css">
+</body>
