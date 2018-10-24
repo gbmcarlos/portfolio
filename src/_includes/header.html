@@ -1,8 +1,13 @@
 <nav class="navbar is-fixed-top has-background-light">
     <div class="navbar-brand">
         <a class="navbar-item" href="/"><img src="/assets/images/logo_box.png"></a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu" id="navMenu">
         <div class="navbar-end">
             <a class="navbar-item" href="{% link pages/about.md %}">About</a>
             <a class="navbar-item" href="{% link pages/cv.md %}">Curriculum</a>
