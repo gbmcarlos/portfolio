@@ -1,5 +1,7 @@
 #!/bin/sh
 
+read -p "Project variant [lumen|laravel]: " PROJECT_VARIANT </dev/tty
+
 read -p "Project name: " PROJECT_NAME </dev/tty
 
 if [ -d ${PROJECT_NAME} ]; then
@@ -15,12 +17,12 @@ echo "Downloading Skellington repo..."
 mkdir ${PROJECT_NAME} && cd ${PROJECT_NAME}
 
 # Download Skellington's tarball and untar in the new folder
-curl -s -L https://github.com/gbmcarlos/skellington/tarball/lumen | tar xz --strip 1
+curl -s -L https://github.com/gbmcarlos/skellington/tarball/${PROJECT_VARIANT} | tar xz --strip 1
 
 echo "Preparing ${PROJECT_NAME}..."
 
 # Delete files and folders
-rm -f installer.sh .gitmodules
+rm -f .gitmodules
 rm -rf src/toolkit
 
 # Replace with the new project name
@@ -40,9 +42,7 @@ git add README.md
 git commit -m "Initial commit"  > /dev/null
 
 # Commit the project's skeleton
-## Stage everything but src/app
 git add .
-git reset -- src/app
 git commit -m "Project skeleton created by Skellington" > /dev/null
 
 echo "Installing Toolkit..."
@@ -53,12 +53,10 @@ git add .gitmodules
 git add src/toolkit
 git commit -m "Installed Toolkit" > /dev/null
 
-echo "Installing Composer dependencies..."
+echo "Running ${PROJECT_NAME}..."
 
-# Deploy locally and extract composer.lock
-make api > /dev/null
-docker cp ${PROJECT_NAME}:/var/task/composer.lock .
-git add composer.lock
-git commit -m "Installed composer dependencies" > /dev/null
+# Run it
+make run > /dev/null
 
 echo "Finished! ${PROJECT_NAME} is now ready"
+echo "Execute 'docker logs -f ${PROJECT_NAME}' to see the progress"
