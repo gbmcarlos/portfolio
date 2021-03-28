@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+export PORT=${PORT=80}
 export PROJECT_NAME=${PROJECT_NAME=localhost}
 export BASIC_AUTH_ENABLED=${BASIC_AUTH_ENABLED:=true}
 export BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME:=admin}
@@ -15,5 +16,6 @@ then
 else
     export BASIC_AUTH_ENABLED=off ;
 fi
-envsubst '${BASIC_AUTH_ENABLED}${PROJECT_NAME}' < /etc/nginx/nginx.conf > /etc/nginx/nginx.conf.tmp
+### Replace these env vars in the nginx config file
+envsubst '${PORT}${BASIC_AUTH_ENABLED}${PROJECT_NAME}${PORT}' < /etc/nginx/nginx.conf > /etc/nginx/nginx.conf.tmp
 mv /etc/nginx/nginx.conf.tmp /etc/nginx/nginx.conf

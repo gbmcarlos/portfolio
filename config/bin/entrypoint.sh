@@ -5,6 +5,6 @@ export BASIC_AUTH_ENABLED=${BASIC_AUTH_ENABLED:=true}
 export BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME:=admin}
 export BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD:=${PROJECT_NAME}_password}
 
-/bin/sh /var/www/configure.sh
+/bin/sh /opt/bin/configure.sh
 
 /usr/sbin/nginx -g "daemon off;"

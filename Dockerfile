@@ -3,19 +3,19 @@ FROM nginx:1.15.5-alpine
 ## SYSTEM DEPENDENCIES
 ### vim and bash are utilities, so that we can work inside the container
 ### apache2-utils is necessary to use htpasswd to encrypt the password for basic auth
-### ruby-rdoc, ruby-dev and build-base are necessary to instal gems
+### ruby-rdoc, ruby-dev, ruby-etc and build-base are necessary to instal gems
 ### bigdecimal is not installed in the alpine ruby environment by default
 ### bundler to install gem dependencies from a Gemfile
 RUN     apk update \
     &&  apk add \
             vim bash \
             apache2-utils \
-            ruby-rdoc ruby-dev build-base \
+            ruby-rdoc ruby-dev ruby-etc build-base \
     &&  gem install \
             bigdecimal \
             bundler
 
-WORKDIR /var/www
+WORKDIR /var/task
 
 ## GEM DEPENDENCIES
 ### Copy the Gemfile files and install dependencies with bundler
@@ -24,12 +24,12 @@ RUN bundler install
 
 ## SCRIPTS
 ### Make sure all scripts have execution permissions
-COPY ./deploy/scripts/* ./
-RUN chmod +x ./*.sh
+COPY --chmod=+x ./config/bin/* /opt/bin/
+#RUN /opt/bin/*.sh
 
 ## CONFIG FILES
 ### We just need a very simple nginx config file
-COPY ./deploy/config/nginx.conf /etc/nginx/nginx.conf
+COPY config/nginx.conf /etc/nginx/nginx.conf
 
 ## SOURCE CODE
 COPY ./src ./src
@@ -38,4 +38,4 @@ COPY ./src ./src
 ### Build from src to src/public
 RUN jekyll build --source src --destination src/public
 
-CMD ["./entrypoint.sh"]
+CMD ["/opt/bin/entrypoint.sh"]
