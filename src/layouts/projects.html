@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="sec">
+    <div class="container">
+        <div class="row">
+            {% for project in site.projects %}
+            <div class="col-md-4">
+                <a href="{{ project.url }}">
+                    <div class="project project-summary">
+                        {% if project.image %}
+                        <div class="project-image">
+                            <img alt="{{ project.title }}" class="img-responsive" src="{{ project.image }}" />
+                        </div>
+                        {% endif %}
+                        <div class="project-content">
+                            <h2 class="project-title">
+                                {{ project.title }}
+                            </h2>
+                            <p class="desc">{{ project.content | markdownify | strip_html | truncate: 100 }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
