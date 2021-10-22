@@ -26,36 +26,15 @@ run: build
 	docker run \
     --name ${APP_NAME} \
     -d \
-    -p ${HOST_PORT}:${PORT} \
+    -p ${HOST_PORT}:80 \
     -e PORT \
     -e APP_NAME \
     -e APP_DEBUG \
-    -e BASIC_AUTH_ENABLED \
-    -e BASIC_AUTH_USERNAME \
-    -e BASIC_AUTH_PASSWORD \
     -v ${PROJECT_PATH}src:/var/task/src \
-    -v ${PROJECT_PATH}vendor:/opt/vendor \
     ${APP_NAME}:latest
 
-watch: build
-	docker rm -f ${APP_NAME} || true
-
-	docker run \
-    --name ${APP_NAME} \
-    -d \
-    -p ${HOST_PORT}:${PORT} \
-    -e PORT \
-    -e APP_NAME \
-    -e APP_DEBUG \
-    -e BASIC_AUTH_ENABLED \
-    -e BASIC_AUTH_USERNAME \
-    -e BASIC_AUTH_PASSWORD \
-    -v ${PROJECT_PATH}src:/var/task/src \
-    -v ${PROJECT_PATH}vendor:/opt/vendor \
-    ${APP_NAME}:latest \
-    /bin/sh -c "./configure.sh && jekyll build --source src --destination src/public && /usr/sbin/nginx -g \"daemon off;\""
-
-	docker exec portfolio /bin/sh -c "jekyll build --source src --destination src/public --watch"
+watch: run
+	docker exec portfolio /bin/sh -c "jekyll build --trace --config /var/task/src/config.yml --watch"
 
 build:
 	docker build -t ${APP_NAME} .

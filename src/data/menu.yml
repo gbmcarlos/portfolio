@@ -1,0 +1,9 @@
+items:
+  - name: "About"
+    url: "/about/"
+  - name: "Curriculum"
+    url: "/curriculum/"
+  - name: "Projects"
+    url: "/projects/"
+  - name: "Blog"
+    url: "https://medium.gbmcarlos.com"

@@ -1,7 +1,11 @@
 ---
+title: gbmcarlos
 layout: home
+description: Carlos Garcia-Berro Molero
 ---
 
-## gbmcarlos
+## Looking for a Designer!
 
-Carlos Garcia-Berro Molero
+# gbmcarlos
+
+Initiated at the early age of eleven years, disciplined in self-teaching and self-improvement, quickly acquired a great premature experience.

@@ -11,6 +11,7 @@ RUN     apk update \
             vim bash \
             apache2-utils \
             ruby-rdoc ruby-dev ruby-etc build-base \
+            git \
     &&  gem install \
             bigdecimal \
             bundler
@@ -22,11 +23,6 @@ WORKDIR /var/task
 COPY ./Gemfile* ./
 RUN bundler install
 
-## SCRIPTS
-### Make sure all scripts have execution permissions
-COPY --chmod=+x ./config/bin/* /opt/bin/
-#RUN /opt/bin/*.sh
-
 ## CONFIG FILES
 ### We just need a very simple nginx config file
 COPY config/nginx.conf /etc/nginx/nginx.conf
@@ -36,6 +32,6 @@ COPY ./src ./src
 
 ## JEKYLL BUILD
 ### Build from src to src/public
-RUN jekyll build --source src --destination src/public
+RUN jekyll build --trace --config /var/task/src/config.yml
 
-CMD ["/opt/bin/entrypoint.sh"]
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

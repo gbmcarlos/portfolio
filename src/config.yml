@@ -1,0 +1,28 @@
+# Basic info
+title: gbmcarlos
+email: gbmcarlos@gmail.com
+description: Carlos Garcia-Berro Molero
+github_username: gbmcarlos
+permalink: pretty
+
+# Content configuration
+layouts_dir: layouts
+data_dir: data
+includes_dir: includes
+collections_dir: collections
+collections:
+    jobs:
+        output: true
+    projects:
+        output: true
+
+# Build settings
+source: src
+destination: src/public
+plugins:
+    - jekyll-environment-variables
+gems:
+    - kramdown
+exclude:
+    - LICENSE.md
+    - README.md
