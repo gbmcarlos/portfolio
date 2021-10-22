@@ -31,7 +31,8 @@ run: build
     -e APP_NAME \
     -e APP_DEBUG \
     -v ${PROJECT_PATH}src:/var/task/src \
-    ${APP_NAME}:latest
+    ${APP_NAME}:latest \
+    /bin/sh -c "jekyll build --trace --config /var/task/src/config.yml; /opt/bin/entrypoint.sh"
 
 watch: run
 	docker exec portfolio /bin/sh -c "jekyll build --trace --config /var/task/src/config.yml --watch"
