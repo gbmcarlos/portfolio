@@ -24,7 +24,7 @@ RUN bundler install
 
 ## SCRIPTS
 ### Make sure all scripts have execution permissions
-COPY --chmod=+x bin/entrypoint.sh /opt/bin/entrypoint.sh
+COPY bin/entrypoint.sh /opt/bin/entrypoint.sh
 
 ## CONFIG FILES
 ### We just need a very simple nginx config file
