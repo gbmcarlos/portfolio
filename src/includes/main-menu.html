@@ -1,0 +1,23 @@
+<div class="toggle-wrap d-lg-none">
+  <div class="toggle-line">
+    <span></span>
+  </div>
+  <div class="logo">
+    <a href="/"><img src="/assets/images/logo.png" alt="Denver "/></a>
+  </div>
+</div>
+<div class="main-menu">
+  <div class="header-nav justify-content-between">
+      <div class="logo">
+        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/images/logo.png" alt="Denver"/></a>
+      </div>
+      <ul class="menu">
+        {% for item in site.data.menu.items %}
+        <li class="{% if item.url == page.url %}active{% endif %}">
+          <a href="{{ item.url }}">{{ item.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+  </div>
+  <div class="header-navbar-overlay"></div>
+</div>

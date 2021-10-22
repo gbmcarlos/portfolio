@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<div class="sec curriculum-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="accordion" id="accordion">
+                    {% for job in site.jobs reversed %}
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header" id="heading{{ job.weight }}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse{{ job.weight }}" aria-expanded="false"
+                                    aria-controls="collapse{{ job.weight }}">
+
+                                <h5>{{ job.position }}</h5>
+                                <h6>{{ job.location }}</h6>
+                                {{ job.start_date }} - {{ job.end_date }} {% if job.duration %}({{ job.duration }}){% endif %}
+
+                            </button>
+                        </h2>
+
+                        <div id="collapse{{ job.weight }}"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="heading{{ job.weight }}">
+                            <div class="accordion-body">
+
+                                <h5>{{ job.organization }}</h5>
+
+                                <div class="curriculum-image">
+                                    <img alt="{{ job.title }}" class="img-fluid mb-2"
+                                         src="{{ job.logo }}"/>
+                                </div>
+
+                                <p>{{ job.content }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

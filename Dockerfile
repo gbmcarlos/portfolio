@@ -11,6 +11,7 @@ RUN     apk update \
             vim bash \
             apache2-utils \
             ruby-rdoc ruby-dev ruby-etc build-base \
+            git \
     &&  gem install \
             bigdecimal \
             bundler
@@ -31,6 +32,6 @@ COPY ./src ./src
 
 ## JEKYLL BUILD
 ### Build from src to src/public
-RUN jekyll build --source src --destination src/public
+RUN jekyll build --trace --config /var/task/src/config.yml
 
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
