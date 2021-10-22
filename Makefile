@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.DEFAULT_GOAL := watch
+.DEFAULT_GOAL := logs
 .PHONY: watch logs run build
 
 MAKEFILE_PATH := $(abspath $(lastword ${MAKEFILE_LIST}))

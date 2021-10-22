@@ -11,7 +11,6 @@ RUN     apk update \
             vim bash \
             apache2-utils \
             ruby-rdoc ruby-dev ruby-etc build-base \
-            git \
     &&  gem install \
             bigdecimal \
             bundler
