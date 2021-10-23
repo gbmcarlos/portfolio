@@ -27,4 +27,3 @@ In a lateral move, I took another position in the same city, where I stayed for 
 
 [comment]: <> (##### Future ventures)
 
-
