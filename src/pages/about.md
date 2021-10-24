@@ -3,7 +3,6 @@ title: 'About Me, Carlos'
 date: 2018-02-22T17:01:34+07:00
 layout: about
 permalink: /about/
-intro_image: "/assets/images/profile_picture.jpg"
 bodyClass: page-about
 ---
 
