@@ -5,7 +5,7 @@ layout: default
 <div class="sec curriculum-sec">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="accordion" id="accordion">
                     {% for job in site.jobs reversed %}
                     <div class="accordion-item">
@@ -36,7 +36,7 @@ layout: default
                                             {{ job.organization_description }}
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 d-none d-md-block">
                                             <a href="{{ job.organization_url }}" target="_blank"><img alt="{{ job.organization_name }}" class="organization-logo img-fluid mb-2"
                                                  src="{{ job.logo }}"/></a>
                                         </div>
