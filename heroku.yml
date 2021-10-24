@@ -1,3 +1,5 @@
 build:
     docker:
         web: Dockerfile
+run:
+    web: jekyll build --trace --config /var/task/src/config.yml; /opt/bin/entrypoint.sh
