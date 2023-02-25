@@ -1,7 +1,7 @@
 ---
-title: gbmcarlos
-permalink: /
 layout: home
+permalink: /
+title: gbmcarlos
 description: Carlos Garcia-Berro Molero
 ---
 

@@ -11,14 +11,11 @@
         {% if page.description %}
         <meta name="description" content="{{ page.description }}" />
         {% endif %}
-        <meta property="og:title" content="{{ site.seo.meta_og_title }}" />
+        <meta property="og:title" content="{{ data.seo.meta_og_title }}" />
         <meta property="og:type" content="{{ site.seo.meta_og_type }}" />
         <meta property="og:url" content="{{ site.seo.meta_og_url }}" />
         <meta property="og:image" content="{{ site.seo.meta_og_image }}" />
         <meta property="og:description" content="{{ site.seo.meta_og_description }}" />
-        <meta name="twitter:card" content="{{ site.seo.meta_twitter_card }}" />
-        <meta name="twitter:site" content="{{ site.seo.meta_twitter_site }}" />
-        <meta name="twitter:creator" content="{{ site.seo.meta_twitter_creator }}" />
         {% if site.env.GA_ID != nil %}
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.env.GA_ID }}"></script>
         <script>

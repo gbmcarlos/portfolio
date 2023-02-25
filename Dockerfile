@@ -13,7 +13,7 @@ RUN     apk update \
             ruby-rdoc ruby-dev ruby-etc build-base \
     &&  gem install \
             bigdecimal \
-            bundler
+            bundler:2.3.26
 
 WORKDIR /var/task
 
