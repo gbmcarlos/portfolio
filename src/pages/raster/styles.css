@@ -1,0 +1,16 @@
+body {
+    background-color: green;
+}
+.characters-table {
+    width: auto !important;
+    height: fit-content;
+}
+.selection-canvas {
+    border: 1px black solid;
+}
+.character-cell {
+    padding: 0;
+}
+.character-canvas {
+    border: 1px black solid;
+}
