@@ -1,0 +1,9 @@
+.editor-container {
+    border: 1px solid red;
+    height: 90%;
+    overflow: auto;
+}
+
+.row {
+    flex: 1
+}
