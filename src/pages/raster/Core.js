@@ -321,9 +321,6 @@ var Core = {
             if (this.characters[i].rawImage) {
 
                 var image = this.characters[i].image;
-                var imageWidth = this.characters[i].image.getScaledWidth();
-                var imageHeight = this.characters[i].image.getScaledHeight();
-                var imageTl = this.characters[i].image.aCoords.tl;
                 exportData[i] = {
                     imageData: this.characters[i].rawImage.currentSrc,
                     options: {
