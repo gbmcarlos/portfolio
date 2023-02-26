@@ -299,7 +299,7 @@ var Core = {
                 bl: false, br: false, tl: false, tr: false,
                 mb: false, ml: false, mr: false, mt: false, mtr: false
             });
-            var ratio = 300 / 50;
+            var ratio = this.options.selectionWidth / this.options.characterWidth;
             var left = this.characters[selection].image.aCoords.tl.x * ratio;
             var top = this.characters[selection].image.aCoords.tl.y * ratio;
             image.set({
