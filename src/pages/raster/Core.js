@@ -15,9 +15,9 @@ var Core = {
 
         this.options.selectionSectionHeight = parseInt(this.getUrlParameter('selection_section_height', 70));
         this.options.charactersSectionHeight = 100 - this.options.selectionSectionHeight;
-        this.options.selectionWidth = parseInt(this.getUrlParameter('selection_width', 330));
-        this.options.selectionHeight = parseInt(this.getUrlParameter('selection_height', 480));
-        this.options.characterWidth = parseInt(this.getUrlParameter('character_width', 70));
+        this.options.selectionWidth = parseInt(this.getUrlParameter('selection_width', 370));
+        this.options.selectionHeight = parseInt(this.getUrlParameter('selection_height', 500));
+        this.options.characterWidth = parseInt(this.getUrlParameter('character_width', 63));
         this.options.characterHeight = parseInt(this.getUrlParameter('character_height', 95));
         this.options.charactersRows = parseInt(this.getUrlParameter('characters_rows', 2));
         this.options.charactersColumns = parseInt(this.getUrlParameter('characters_columns', 10));
