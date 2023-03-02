@@ -87,12 +87,25 @@ var Core = {
         this.editors[editorIndex] = {
             instance: new EditorJS({
                 holder: "editor-container-" + editorIndex,
-                data: editorContent
+                data: editorContent,
+                onChange: (function() {
+                    this.updateEditorBlockCount(editorIndex);
+                }).bind(this),
+                onReady: (function() {
+                    this.updateEditorBlockCount(editorIndex);
+                }).bind(this)
             }),
             chapterIndex: chapterIndex
         };
 
         this.initSaveFileInput(editorIndex);
+
+    },
+
+    updateEditorBlockCount: function(editorIndex) {
+
+        var blockCount = this.editors[editorIndex].instance.blocks.getBlocksCount();
+        document.getElementById("block-count-label-" + editorIndex).innerHTML = blockCount;
 
     },
 
